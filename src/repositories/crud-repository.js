@@ -1,3 +1,4 @@
+const { StatusCodes } = require("http-status-codes");
 const { where } = require("sequelize");
 
 class CrudRepository {
@@ -26,6 +27,13 @@ class CrudRepository {
         id: id,
       },
     });
+    return response;
+  }
+  async get(id) {
+    const response = await this.model.findByPk(id);
+    if(!response){
+        throw new AppError('Airplane not found',StatusCodes.NOT_FOUND)
+    }
     return response;
   }
 }
