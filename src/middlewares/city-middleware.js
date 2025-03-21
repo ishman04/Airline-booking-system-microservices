@@ -4,9 +4,9 @@ const AppError = require('../utils/errors/app-error')
 
 
 function validateCreateRequest(req,res,next){
-    if(!req.body.modelNumber){
-        ErrorResponse.message = "Model number is required"
-        ErrorResponse.error = new AppError(['Model number not sent in correct form']) 
+    if(!req.body.name){
+        ErrorResponse.message = "Name is required"
+        ErrorResponse.error = new AppError(['Name not sent in correct form']) 
         return res 
                 .status(StatusCodes.BAD_REQUEST)
                 .json(ErrorResponse);
