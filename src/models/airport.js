@@ -9,8 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    // Migration file = "Tell the database"
+    // associate() function = "Tell Sequelize how to use the relationship"
     static associate(models) {
       // define association here
+      this.belongsTo(models.City,{
+        foreignKey:'cityId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
     }
   }
   Airport.init({
