@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.City,{
         foreignKey:'cityId',
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
       });
     }
   }
@@ -36,9 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true
     },
-    city_id:{
+    cityId:{
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      field: 'city_id'
     } 
   }, {
     sequelize,
