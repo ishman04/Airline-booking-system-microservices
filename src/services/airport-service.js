@@ -54,7 +54,7 @@ async function destroyAirport(id){
 
 module.exports = {
     createAirport,
-    getAirport,
+    getAirports,
     getAirport,
     destroyAirport
 }
