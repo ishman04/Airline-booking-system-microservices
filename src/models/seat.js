@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Seat.init({
+    airplaneId: {
+      type:  DataTypes.INTEGER,
+      allowNull: false
+    },
     row: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -27,10 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    airplaneId: {
-      type:  DataTypes.INTEGER,
-      allowNull: false
-    },
+    
     type: {
       type:  DataTypes.ENUM,
       values: [BUSINESS,FIRST_CLASS,PREMIUM_ECONOMY,ECONOMY],

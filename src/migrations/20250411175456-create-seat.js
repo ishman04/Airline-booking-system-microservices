@@ -11,14 +11,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      row: {
-        type: Sequelize.INTEGER,
-        allowNull: false   
-      },
-      col: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       airplaneId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -28,6 +20,15 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
+      row: {
+        type: Sequelize.INTEGER,
+        allowNull: false   
+      },
+      col: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      
       type: {
         type: Sequelize.STRING,
         values: [BUSINESS,FIRST_CLASS,PREMIUM_ECONOMY,ECONOMY],
