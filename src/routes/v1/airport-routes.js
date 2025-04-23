@@ -1,19 +1,19 @@
 const express = require('express');
 const { AirportController } = require('../../controllers');
-const {AirportMiddlewares} = require('../../middlewares')
+const {AirportMiddlewares,AuthMiddlewares} = require('../../middlewares')
 
 const router = express.Router();
 
 router
-    .post('/',AirportMiddlewares.validateCreateRequest,AirportController.createAirport);
+    .post('/',AirportMiddlewares.validateCreateRequest,AuthMiddlewares.authenticate, AuthMiddlewares.authorizeRole('admin'),AirportController.createAirport);
 
 router
-    .get('/',AirportController.getAirports);
+    .get('/',AuthMiddlewares.authenticate,AirportController.getAirports);
 
 router
-    .get('/:id',AirportController.getAirport);
+    .get('/:id',AuthMiddlewares.authenticate, AirportController.getAirport);
 
 router
-    .delete('/:id',AirportController.destroyAirport);
+    .delete('/:id',AuthMiddlewares.authenticate, AuthMiddlewares.authorizeRole('admin'),AirportController.destroyAirport);
 
 module.exports = router;
