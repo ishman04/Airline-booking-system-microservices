@@ -5,7 +5,7 @@ const {AirportMiddlewares} = require('../../middlewares')
 const router = express.Router();
 
 router
-    .post('/',AirportMiddlewares.validateCreateRequest,AirportController.createPlane);
+    .post('/',AirportMiddlewares.validateCreateRequest,AirportController.createAirport);
 
 router
     .get('/',AirportController.getAirports);

@@ -2,7 +2,7 @@ const { StatusCodes } = require('http-status-codes')
 const {AirportService} = require('../services')
 const { SuccessResponse, ErrorResponse } = require('../utils/common')
 
-async function createPlane(req,res){
+async function createAirport(req,res){
     try {
         const airport = await AirportService.createAirport({
             name: req.body.name,
@@ -74,7 +74,7 @@ async function destroyAirport(req,res){
 }
 
 module.exports = {
-    createPlane,
+    createAirport,
     getAirports,
     getAirport,
     destroyAirport
